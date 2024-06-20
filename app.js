@@ -3,6 +3,9 @@ import express from "express";
 import morgan from "morgan";
 import connectDB from "./config/mongoose.config.js";
 import * as dotenv from "dotenv";
+import museumRouter from './routes/museum.routes.js';
+import userRouter from './routes/user.routes.js';
+import reviewRouter from './routes/review.routes.js';
 
 dotenv.config(); 
 
@@ -14,6 +17,9 @@ const logger = morgan("dev");
 app.use(express.json()); // PARSE INCOMING REQUESTS WITH JSON PAYLOADS, GIVES US ACCESS TO REQ.BODY
 app.use(logger); // LOGS ALL INCOMING REQUESTS
 
+app.use("/user", userRouter);
+app.use("/museum", museumRouter);
+app.use("/review", reviewRouter);
 
 // ROUTES
 
