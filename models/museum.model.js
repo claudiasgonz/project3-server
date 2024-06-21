@@ -18,7 +18,7 @@ const museumSchema = new Schema(
     description: {
         type: String,
         required: true,
-        maxLength: 200,
+        maxLength: 1000,
     },
     artType: {
         type: String,

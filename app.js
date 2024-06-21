@@ -17,12 +17,10 @@ const logger = morgan("dev");
 app.use(express.json()); // PARSE INCOMING REQUESTS WITH JSON PAYLOADS, GIVES US ACCESS TO REQ.BODY
 app.use(logger); // LOGS ALL INCOMING REQUESTS
 
+// ROUTES
 app.use("/user", userRouter);
 app.use("/museum", museumRouter);
 app.use("/review", reviewRouter);
-
-// ROUTES
-
 
 // START SERVER, MAKE EXPRESS SERVER LISTEN ON PORT
 app.listen(process.env.PORT, () => {
