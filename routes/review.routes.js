@@ -6,6 +6,7 @@ import isAuth from "../middleware/authentication.middleware.js";
 
 const router = express.Router();
 
+// CREATE REVIEW
 router.post("/:museumId", isAuth, async (req, res) => {
    try {
     const {museumId} = req.params;
@@ -37,6 +38,7 @@ router.post("/:museumId", isAuth, async (req, res) => {
    } 
 });
 
+// DELETE REVIEW
 router.delete("/:reviewId", isAuth, async (req, res) => {
     try {
         const { reviewId } = req.params;

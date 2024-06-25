@@ -38,7 +38,12 @@ router.post("/", isAuth, isAdmin, async (req, res) => {
 // GET ALL MUSEUMS
 router.get("/all", async (req, res) => {
     try {
-        const allMuseums = await Museum.find().populate("reviews");
+        const allMuseums = await Museum.find().populate({
+            path: "reviews", 
+            populate: {path: "creator"},
+        });
+
+        console.log(allMuseums[0])
 
         res.json(allMuseums);
     } catch (error) {
@@ -52,7 +57,7 @@ router.get("/:museumId", async (req, res) => {
     try {
         const { museumId } = req.params;
 
-        const museum = await Museum.findById(museumId).populate("reviews");
+        const museum = await Museum.findById(museumId).populate({path: "reviews", populate: {path: "creator"}});
 
         res.json(museum)
     } catch (error) {

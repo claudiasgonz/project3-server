@@ -6,6 +6,7 @@ import * as dotenv from "dotenv";
 import museumRouter from './routes/museum.routes.js';
 import userRouter from './routes/user.routes.js';
 import reviewRouter from './routes/review.routes.js';
+import cors from "cors";
 
 dotenv.config(); 
 
@@ -16,6 +17,10 @@ const logger = morgan("dev");
 // MIDDLEWARE
 app.use(express.json()); // PARSE INCOMING REQUESTS WITH JSON PAYLOADS, GIVES US ACCESS TO REQ.BODY
 app.use(logger); // LOGS ALL INCOMING REQUESTS
+app.use(cors({
+    origin: [process.env.REACT_URL],
+})
+);
 
 // ROUTES
 app.use("/user", userRouter);
