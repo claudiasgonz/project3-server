@@ -13,7 +13,7 @@ const reviewSchema = new Schema(
         required: true, 
         trim: true,
         maxLength: 500,
-        minLength: 24
+        minLength: 2
     },
     rating: {
         type: Number,
