@@ -125,6 +125,19 @@ router.get("/admin", isAuth, isAdmin, async (req, res) => {
     }
 });
 
+// GET A SPECIFIC USER BY ID
+router.get("/:userId", async (req, res) => {
+    try {
+        const { userId } = req.params;
+
+        const user = await User.findById(userId).populate("reviews");
+
+        res.json(user)
+    } catch (error) {
+        console.log("Error fetching single user details", error);
+    }
+});
+
 export default router;
 
     //we use jwt.sign() to creaqte a token upon login
