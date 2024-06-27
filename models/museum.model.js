@@ -61,7 +61,6 @@ const museumSchema = new Schema(
         //     "Land Art",
         //     "Body Art"
         // ],
-    required: true,
     },
     website: {
         type: String,
@@ -70,6 +69,10 @@ const museumSchema = new Schema(
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: "Review",
+    }],
+    favorites: [{
+        type: Schema.Types.ObjectId,
+        ref: "Favorite",
     }],
 }, 
 {

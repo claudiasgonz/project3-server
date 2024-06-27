@@ -6,6 +6,8 @@ import * as dotenv from "dotenv";
 import museumRouter from './routes/museum.routes.js';
 import userRouter from './routes/user.routes.js';
 import reviewRouter from './routes/review.routes.js';
+// import listRouter from './routes/list.routes.js';
+// import museumEntryRouter from './routes/museumEntry.routes.js';
 import cors from "cors";
 
 dotenv.config(); 
@@ -26,6 +28,9 @@ app.use(cors({
 app.use("/user", userRouter);
 app.use("/museum", museumRouter);
 app.use("/review", reviewRouter);
+
+// app.use("/list", listRouter);
+// app.use("/museumEntry", museumEntryRouter)
 
 // START SERVER, MAKE EXPRESS SERVER LISTEN ON PORT
 app.listen(process.env.PORT, () => {
